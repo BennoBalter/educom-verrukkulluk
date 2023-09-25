@@ -19,7 +19,4 @@ $data = $art->selecteerArtikel(8);
 echo "<pre>";
 var_dump($data);
 
-
-
-
 ?>
