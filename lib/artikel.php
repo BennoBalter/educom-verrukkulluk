@@ -1,5 +1,6 @@
 <?php
 
+
 class artikel {
 
     private $connection;
