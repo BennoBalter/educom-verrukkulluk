@@ -1,6 +1,6 @@
 <?php
 
-class gebruiker {
+class keukentype {
 
     private $connection;
 
@@ -8,14 +8,14 @@ class gebruiker {
         $this->connection = $connection;
     }
   
-    public function selecteerGebruiker($gebruiker_id) {
+    public function selecteerKeukentype($keukentype_id) {
         $return = array();
-        
-        $sql = "SELECT * FROM gebruiker WHERE id = $gebruiker_id";
+
+        $sql = "SELECT * FROM keukentype WHERE id = $keukentype_id";
         $result = mysqli_query($this->connection, $sql);
         
         while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $return[] = $data['gebruiker_email'];
+            $return[] = $data['recept_keukentype_omschrijving'];
         };
         
         return($return);
