@@ -9,19 +9,15 @@ class gebruiker {
     }
   
     public function selecteerGebruiker($gebruiker_id) {
-        $return = array();
-        
+
         $sql = "SELECT * FROM gebruiker WHERE id = $gebruiker_id";
         $result = mysqli_query($this->connection, $sql);
-        
-        while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $return[] = $data['gebruiker_email'];
-        };
-        
-        return($return);
-
+                
+        $data_gebr = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return $data_gebr;
     }
-
 
 }
 ?>
+
+<!-- $return[] = $data_gebr['gebruiker_email']; -->

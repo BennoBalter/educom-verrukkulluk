@@ -13,14 +13,10 @@ class artikel {
         $sql = "SELECT * FROM artikel WHERE id = $artikel_id";
         $result = mysqli_query($this->connection, $sql);
         
-        while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $return[] = $data['artikel_prijs_unit'];
-        };
-        
-        return($return);
-
+        $data_art = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                
+        return $data_art;
     }
-
 
 }
 ?>
