@@ -12,22 +12,19 @@ require_once("lib/ingredient.php");
 
 /// INIT
 $db = new database();
-$art = new artikel($db->getConnection());
-$gebr = new gebruiker($db->getConnection());
-$keukentype = new keukentype($db->getConnection());
+// $art = new artikel($db->getConnection());
+// $gebr = new gebruiker($db->getConnection());
+// $keukentype = new keukentype($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 
 /// VERWERK 
-$data_art = $art->selecteerArtikel(8);
-$data_gebr = $gebr->selecteerGebruiker(1);
-$data_keukentype = $keukentype->selecteerKeukentype(10);
-$data_ingr = $ingredient->selecteerIngredient(29);
+// $data_art = $art->selecteerArtikel(8);
+// $data_gebr = $gebr->selecteerGebruiker(1);
+// $data_keukentype = $keukentype->selecteerKeukentype(10);
+$data_ingr = $ingredient->selecteerIngredient(2);
 
 /// RETURN
 echo "<pre>";
-var_dump($data_art);
-var_dump($data_gebr);
-var_dump($data_keukentype);
 var_dump($data_ingr);
 
 ?>
