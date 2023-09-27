@@ -1,16 +1,16 @@
 <?php
 // class om in index.php verbinding met database te leggen en methodes uit te voeren
-class ingredient {
+class Ingredient {
 
     private $connection; // property connection van de class ingredient, houdt de verbinding met de database in die gelegd is in database.php 
     private $art;
 
     public function __construct($connection) { // constructs database connection
         $this->connection = $connection; // "$this->connection" is a class property. Now this ingredient class has a connection property.
-        $this->art = new artikel($connection); // the art we are dealing with in this instance should refer to the database connection and the artikel methods
+        $this->art = new Artikel($connection); // the art we are dealing with in this instance should refer to the database connection and the artikel methods
     }
 
-    private function selectArtikel($artikel_id) { // nu kan de ingredient class artikel-info ophalen met een artikel_id, methodes hergebruiken
+    private function selecteerArtikel($artikel_id) { // nu kan de ingredient class artikel-info ophalen met een artikel_id, methodes hergebruiken
         $artikel = $this->art->selecteerArtikel($artikel_id);
         return($artikel);
     }
@@ -24,7 +24,7 @@ class ingredient {
         
         while($ingredient = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // iterate through rows of results, stored as array in ingredient variable
            
-            $art = $this->selectArtikel($ingredient["artikel_id"]); // retrieve artikel-info of the current ingredient using artikel_id
+            $art = $this->selecteerArtikel($ingredient["artikel_id"]); // retrieve artikel-info of the current ingredient using artikel_id
            
             $return[] = [
               "id" => $ingredient['id'],

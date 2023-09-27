@@ -1,8 +1,9 @@
 <?php
 
-class gebruiker {
+class Gebruiker {
 
     private $connection;
+    private $gebr;
 
     public function __construct($connection) {
         $this->connection = $connection;
@@ -13,11 +14,13 @@ class gebruiker {
         $sql = "SELECT * FROM gebruiker WHERE id = $gebruiker_id";
         $result = mysqli_query($this->connection, $sql);
                 
-        $data_gebr = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        return $data_gebr;
+        $gebr = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return $gebr;
     }
 
 }
 ?>
 
 <!-- $return[] = $data_gebr['gebruiker_email']; -->
+<!-- "gebruiker_naam" => $gebr['gebruiker_naam'],
+"gebruiker_afbeelding" => $gebr['gebruiker_afbeelding'], -->

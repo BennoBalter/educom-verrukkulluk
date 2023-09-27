@@ -1,8 +1,9 @@
 <?php
 
-class artikel {
+class Artikel {
 
     private $connection;
+    private $art;
 
     public function __construct($connection) {
         $this->connection = $connection;
@@ -13,9 +14,9 @@ class artikel {
         $sql = "SELECT * FROM artikel WHERE id = $artikel_id";
         $result = mysqli_query($this->connection, $sql);
         
-        $data_art = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $art = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
-        return $data_art;
+        return $art;
     }
 
 }

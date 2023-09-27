@@ -10,25 +10,33 @@ require_once("lib/gebruiker.php");
 require_once("lib/keukentype.php");
 require_once("lib/ingredient.php");
 require_once("lib/receptinfo.php");
+require_once("lib/recept.php");
 
 /// INIT
 $db = new database();
-// $gebr = new gebruiker($db->getConnection());
-// $keukentype = new keukentype($db->getConnection());
-// $ingredient = new ingredient($db->getConnection());
-$receptinfo = new receptinfo($db->getConnection());
+// $art = new Artikel($db->getConnection());
+// $gebr = new Gebruiker($db->getConnection());
+// $keukentype = new Keukentype($db->getConnection());
+// $ingredient = new Ingredient($db->getConnection());
+// $receptinfo = new Receptinfo($db->getConnection());
+$recept = new Recept($db->getConnection());
 
 /// VERWERK 
-// $data_art = $art->selecteerArtikel(8);
-// $data_gebr = $gebr->selecteerGebruiker(1);
-// $data_keukentype = $keukentype->selecteerKeukentype(10);
-// $data_ingr = $ingredient->selecteerIngredient(2);
-// $data_receptinfo = $receptinfo->selecteerReceptinfo(1, 'B');
-// $data_receptinfo = $receptinfo->addFavorite(2, '2');
-$data_receptinfo = $receptinfo->deleteFavorite(2, '2');
+// $artikel = $art->selecteerArtikel(8);
+// $gebruiker = $gebr->selecteerGebruiker(1);
+// $keukentype = $keukentype->selecteerKeukentype(10);
+// $ingredient = $ingredient->selecteerIngredient(2);
+// $receptinfo = $receptinfo->selecteerReceptinfo(1, 'B');
+// $receptinfo = $receptinfo->addFavorite(2, '2');
+// $receptinfo = $receptinfo->deleteFavorite(2, '2');
+$recept = $recept->selecteerRecept(1);
 
 /// RETURN
 echo "<pre>";
-// var_dump($data_ingr);
-var_dump($data_receptinfo);
+// var_dump($artikel);
+// var_dump($gebruiker);
+// var_dump($keukentype);
+// var_dump($ingredient);
+// var_dump($receptinfo);
+var_dump($recept);
 ?>

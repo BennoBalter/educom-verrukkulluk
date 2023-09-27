@@ -1,6 +1,6 @@
 <?php
 
-class receptinfo {
+class Receptinfo {
 
     private $connection; 
     private $recinfo;
@@ -8,10 +8,10 @@ class receptinfo {
 
     public function __construct($connection) { 
         $this->connection = $connection;
-        $this->gebr = new gebruiker($connection);
+        $this->gebr = new Gebruiker($connection);
     }
 
-    private function selectGebruiker($gebruiker_id) { 
+    private function selecteerGebruiker($gebruiker_id) { 
        $gebruiker = $this->gebr->selecteerGebruiker($gebruiker_id);
        return($gebruiker);
     }
@@ -26,7 +26,7 @@ class receptinfo {
         while($receptinfo = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             
             if ($record_type == 'O' || $record_type == 'F') {
-                $recinfo = $this->selectGebruiker($receptinfo["gebruiker_id"]);
+                $recinfo = $this->selecteerGebruiker($receptinfo["gebruiker_id"]);
                 $return[] = [
                     "id" => $receptinfo['id'],
                     "datum" => $receptinfo['datum'],
@@ -76,8 +76,6 @@ class receptinfo {
         }
 
         $conn->close();
- }
+    }
 }
-?>
-
 ?>
